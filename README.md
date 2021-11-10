@@ -1,7 +1,7 @@
 # ArpSpoof_Py
-An ARP spoofer written in python. 
+ARP (Address Resolution Protocol), used to translate between MAC (Media Access Control) addresses and IP (Internet Protocol) addresses. ARP resolves IPs to MAC addresses by asking, “Who has IP address 192.168.1.43.” An example of an ARP reply is “192.168.1.43 is at 02:0c:29:69:19:65."
 
-<!-- ![image](https://user-images.githubusercontent.com/71056504/119310996-28c04800-bc8e-11eb-89b6-75cf4d89300e.png) -->
+What this script allows you to do is to **spoof** (fake) ARP, putting you in the middle of the connection which could be useful for packet sniffing, modifying packets, etc.
 
 ```
 ╭─stagefright@Aspire ~/Projects/ArpSpoof_Py ‹main› 
@@ -69,3 +69,5 @@ python3 -m pip install -r requirements.txt
 ```
 sudo python3 ArpSpoof.py
 ```
+
+# Thanks!
