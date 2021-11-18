@@ -4,7 +4,7 @@ ARP (Address Resolution Protocol), used to translate between MAC (Media Access C
 What this script allows you to do is to **spoof** (fake) ARP, putting you in the middle of the connection which could be useful for packet sniffing, modifying packets, etc.
 
 ```
-╭─stagefright@Aspire ~/Projects/ArpSpoof_Py ‹main› 
+╭─compromyse@Aspire ~/Projects/ArpSpoof_Py ‹main› 
 ╰─$ sudo python3 ArpSpoof.py
 
 ░█████╗░██████╗░██████╗░░██████╗██████╗░░█████╗░░█████╗░███████╗██████╗░██╗░░░██╗
@@ -57,7 +57,7 @@ Arch based: $ sudo pacman -S python python-pip
 
 > Clone git repository
 ```
-git clone https://github.com/Stagefright071/ArpSpoof_Py
+git clone https://github.com/compromyse/ArpSpoof_Py
 ```
 
 > Install script requirements
